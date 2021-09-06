@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="prodRepository" class="com.evozon.repository.impl.ProductRepositoryImpl"/>
+    <bean id="prodService" class="com.evozon.service.impl.ProductServiceImpl">
+        <constructor-arg index="0" ref="prodRepository"/>
+    </bean>
+
+</beans>
