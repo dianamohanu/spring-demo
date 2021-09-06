@@ -1,16 +1,19 @@
 import com.evozon.model.Cart;
+import com.evozon.model.Product;
 import com.evozon.service.CartService;
+import com.evozon.service.ProductService;
 import com.evozon.service.impl.CartServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Application {
 
     public static void main(String[] args) {
-        CartService cartService = new CartServiceImpl();
 
-        cartService.add("123");
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
-        final Cart cart = cartService.get();
-
-        System.out.println(cart.getProducts().get(0).getId());
+        ProductService productService = applicationContext.getBean("prodServiceBean",ProductService.class);
+        
+        System.out.println(productService.getById("123").getId());
     }
 }

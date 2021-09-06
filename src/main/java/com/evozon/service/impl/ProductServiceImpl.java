@@ -4,10 +4,16 @@ import com.evozon.model.Product;
 import com.evozon.repository.ProductRepository;
 import com.evozon.repository.impl.ProductRepositoryImpl;
 import com.evozon.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ProductServiceImpl implements ProductService {
 
-    private ProductRepository productRepository = new ProductRepositoryImpl();
+    private ProductRepository productRepository;
+
+    @Autowired
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public Product getById(String id) {
         return productRepository.getById(id);
