@@ -1,3 +1,4 @@
+import com.evozon.model.Cart;
 import com.evozon.repository.CartRepository;
 import com.evozon.repository.ProductRepository;
 import com.evozon.repository.impl.CartRepositoryImpl;
@@ -9,11 +10,13 @@ import com.evozon.service.impl.ProductServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+
 @Configuration
 public class AppConfig {
     @Bean
     public CartRepository getCartRepository() {
-        return new CartRepositoryImpl();
+        return new CartRepositoryImpl(getCart());
     }
 
     @Bean
@@ -31,5 +34,11 @@ public class AppConfig {
         return new ProductServiceImpl(getProductRepository());
     }
 
+    @Bean
+    public Cart getCart() {
+        Cart cart = new Cart();
+        cart.setProducts(new ArrayList<>());
+        return cart;
+    }
 
 }
