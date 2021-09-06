@@ -9,9 +9,9 @@ import com.evozon.service.ProductService;
 
 public class CartServiceImpl implements CartService {
 
-    private CartRepository cartRepository = new CartRepositoryImpl();
+    private CartRepository cartRepository;
 
-    private ProductService productService = new ProductServiceImpl();
+    private ProductService productService;
 
     public Cart get() {
         return cartRepository.get();
@@ -20,5 +20,13 @@ public class CartServiceImpl implements CartService {
     public void add(String productId) {
         final Product product = productService.getById(productId);
         cartRepository.add(product);
+    }
+
+    public void setCartRepository(CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
+    }
+
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
     }
 }

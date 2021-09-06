@@ -7,9 +7,13 @@ import com.evozon.service.ProductService;
 
 public class ProductServiceImpl implements ProductService {
 
-    private ProductRepository productRepository = new ProductRepositoryImpl();
+    private ProductRepository productRepository;
 
     public Product getById(String id) {
         return productRepository.getById(id);
+    }
+
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 }
