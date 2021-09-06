@@ -1,11 +1,15 @@
 import com.evozon.model.Cart;
 import com.evozon.service.CartService;
 import com.evozon.service.impl.CartServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
 
     public static void main(String[] args) {
-        CartService cartService = new CartServiceImpl();
+        ApplicationContext context = new ClassPathXmlApplicationContext("appContext.xml");
+
+        CartService cartService = context.getBean(CartServiceImpl.class);
 
         cartService.add("123");
 
