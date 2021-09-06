@@ -1,14 +1,13 @@
-import com.evozon.config.AppConfig;
 import com.evozon.model.Cart;
 import com.evozon.service.CartService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("configuration.xml");
 
         CartService cartService = applicationContext.getBean("cartService", CartService.class);
 
