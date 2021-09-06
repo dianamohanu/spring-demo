@@ -9,9 +9,8 @@ import com.evozon.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CartServiceImpl implements CartService {
-    @Autowired
     private CartRepository cartRepository;
-    @Autowired
+
     private ProductService productService;
 
     public Cart get() {
@@ -21,5 +20,13 @@ public class CartServiceImpl implements CartService {
     public void add(String productId) {
         final Product product = productService.getById(productId);
         cartRepository.add(product);
+    }
+
+    public void setCartRepository(CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
+    }
+
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
     }
 }

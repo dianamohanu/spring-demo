@@ -20,7 +20,10 @@ public class ApplicationConfig {
 
     @Bean
     public CartService getCartService() {
-        return new CartServiceImpl();
+        CartServiceImpl cartService = new CartServiceImpl();
+        cartService.setProductService(getProductService());
+        cartService.setCartRepository(getCartRepository());
+        return cartService;
     }
 
     @Bean
@@ -30,6 +33,8 @@ public class ApplicationConfig {
 
     @Bean
     public ProductService getProductService() {
-        return new ProductServiceImpl();
+        ProductServiceImpl productService = new ProductServiceImpl();
+        productService.setProductRepository(getProductRepository());
+        return productService;
     }
 }
