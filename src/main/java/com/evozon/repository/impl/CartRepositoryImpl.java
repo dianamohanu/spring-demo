@@ -3,7 +3,9 @@ package com.evozon.repository.impl;
 import com.evozon.model.Cart;
 import com.evozon.model.Product;
 import com.evozon.repository.CartRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CartRepositoryImpl implements CartRepository {
 
     private final Cart cart = new Cart();
