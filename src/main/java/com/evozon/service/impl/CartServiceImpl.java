@@ -6,7 +6,9 @@ import com.evozon.repository.CartRepository;
 import com.evozon.repository.impl.CartRepositoryImpl;
 import com.evozon.service.CartService;
 import com.evozon.service.ProductService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CartServiceImpl implements CartService {
 
     private CartRepository cartRepository = new CartRepositoryImpl();

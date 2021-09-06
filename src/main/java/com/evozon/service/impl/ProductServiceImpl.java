@@ -4,7 +4,9 @@ import com.evozon.model.Product;
 import com.evozon.repository.ProductRepository;
 import com.evozon.repository.impl.ProductRepositoryImpl;
 import com.evozon.service.ProductService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository = new ProductRepositoryImpl();
