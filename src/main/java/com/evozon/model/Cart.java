@@ -1,8 +1,11 @@
 package com.evozon.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class Cart {
 
     private List<Product> products = new ArrayList<>();

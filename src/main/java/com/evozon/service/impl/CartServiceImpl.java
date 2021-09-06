@@ -6,14 +6,20 @@ import com.evozon.repository.CartRepository;
 import com.evozon.repository.impl.CartRepositoryImpl;
 import com.evozon.service.CartService;
 import com.evozon.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CartServiceImpl implements CartService {
+    private CartRepository cartRepository;
 
-    private CartRepository cartRepository = new CartRepositoryImpl();
+    private ProductService productService;
 
-    private ProductService productService = new ProductServiceImpl();
+    @Autowired
+    public CartServiceImpl(CartRepository cartRepository, ProductService productService) {
+        this.cartRepository = cartRepository;
+        this.productService = productService;
+    }
 
     public Cart get() {
         return cartRepository.get();
