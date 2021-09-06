@@ -2,8 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean name="cartRepository" class="com.evozon.repository.impl.CartRepositoryImpl"/>
+    <bean name="cartRepository" class="com.evozon.repository.impl.CartRepositoryImpl">
+        <constructor-arg index="0" ref="cart"/>
+    </bean>
     <bean name="productRepository" class="com.evozon.repository.impl.ProductRepositoryImpl"/>
+    <bean name="cart" class="com.evozon.model.Cart"/>
     <bean name="productService" class="com.evozon.service.impl.ProductServiceImpl">
         <constructor-arg index="0" ref="productRepository"/>
     </bean>

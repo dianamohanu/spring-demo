@@ -6,7 +6,11 @@ import com.evozon.repository.CartRepository;
 
 public class CartRepositoryImpl implements CartRepository {
 
-    private final Cart cart = new Cart();
+    private final Cart cart;
+
+    public CartRepositoryImpl(Cart cart) {
+        this.cart = cart;
+    }
 
     public Cart get() {
         return cart;
